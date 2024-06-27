@@ -69,3 +69,11 @@ grid_search.fit(X_train, y_train)
 # Display the best parameters
 best_params = grid_search.best_params_
 best_params
+
+# Train the Random Forest model with the best parameters
+best_rf_model = RandomForestClassifier(**best_params)
+best_rf_model.fit(X_train, y_train)
+
+# Evaluate the model on the test set
+test_accuracy = best_rf_model.score(X_test, y_test)
+print("Test Accuracy:", test_accuracy)
